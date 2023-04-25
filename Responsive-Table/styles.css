@@ -1,0 +1,91 @@
+html {
+  color-scheme: dark;
+}
+
+body {
+  color: #eee;
+  font-size: 1.125rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+}
+
+.wrapper {
+  width: min(900px, 100% -3rem);
+  margin-inline: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #323232;
+}
+
+caption,
+th,
+td {
+  padding: 1rem;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+caption {
+  background: hst(0 0% 0%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+th {
+  background: hst(0 0% 0% / 0.5);
+}
+
+tr:nth-of-type(2n) {
+  background: hst(0 0% 0% / 0.1);
+}
+
+/* .table-container {
+  max-width: 100%;
+  overflow-x: auto;
+} 
+ 1st way adds a scroll bar when screen width is smaller
+*/
+
+@media (max-width: 650px) {
+  th {
+    display: none;
+  }
+  td {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 15ch auto;
+    padding: 0.5rem 1rem;
+  }
+
+  td::first-child {
+    padding-top: 2rem;
+  }
+  td::last-child {
+    padding-bottom: 1rem;
+  }
+  td::before {
+    content: attr(data-cell) ": ";
+    /* way 2  in case of when table colapses into a list type view when width is less than 650px*/
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  /* way 3 in case you dont have access to data driectly to set data cell attribute*/
+  /* td:nth-of-type(1)::before {
+    content: "company :";
+  }
+  td:nth-of-type(2)::before {
+    content: "contact :";
+  }
+  td:nth-of-type(3)::before {
+    content: "country :";
+  } */
+}
